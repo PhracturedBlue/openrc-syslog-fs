@@ -10,6 +10,7 @@ This is a simple FUSE filesystem written in Go that allows creating a filehandle
 and redirecting it to syslog.
 
 The idea is to 1st start the FUSE filesystem as:
+
     service openrc_syslog_fs start
 
 The idea is to create an OpenRC service like this:
