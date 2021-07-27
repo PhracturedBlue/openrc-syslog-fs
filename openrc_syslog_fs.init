@@ -1,0 +1,15 @@
+#!/sbin/openrc-run
+
+description="Forward stdout/stderr to syslog"
+MOUNT_PATH="/var/run/openrc_syslog_fs"
+command="/usr/local/bin/openrc_syslog_fs"
+command_args="${MOUNT_PATH}"
+supervisor=supervise-daemon
+
+start_pre() {
+  mkdir -p ${MOUNT_PATH}
+}
+
+stop_post() {
+  umount ${MOUNT_PATH} 2> /dev/null || /bin/true
+}
