@@ -32,3 +32,11 @@ extensions MUST be either `.stdout` or `.stderr`.
 NOTE: That there is no reference-counting in the filesystem.  Once a file is
 opened, it will result in a persistent syslog connection until the filesystem
 is unmounted
+
+## Alpine compatibility
+Alpine provides fusermount2 or fusermount3, however the bazil library used
+expects to find `fusermount`.  As a work-around:
+
+    apk add fuse3
+    ln -s /usr/bin/fusermount3 /usr/local/bin/fusermount
+    lbu include /usr/local/bin/fusermount
