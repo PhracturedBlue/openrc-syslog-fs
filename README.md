@@ -1,4 +1,4 @@
-# openrc-syslog-fuse
+# openrc-syslog-fs
 A FUSE filesystem to make it easy to redirect openRC services to syslog
 
 I like using Alpine with OpenRC on SBC systems, and like many of the features
