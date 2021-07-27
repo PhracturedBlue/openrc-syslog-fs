@@ -33,6 +33,15 @@ NOTE: That there is no reference-counting in the filesystem.  Once a file is
 opened, it will result in a persistent syslog connection until the filesystem
 is unmounted
 
+## Compiling
+Standard Go compilation should suffice, but  a simple docker oneliner is:
+
+    docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp golang:1.16 go build -v openrc_syslog_fs.go
+    
+Or to cross-compile to AARCH64:
+
+    docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp -e GOOS=linux -e GOARCH=arm64 golang:1.16 go build -v openrc_syslog_fs.go
+
 ## Alpine compatibility
 Alpine provides fusermount2 or fusermount3, however the bazil library used
 expects to find `fusermount`.  As a work-around:
