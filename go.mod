@@ -1,4 +1,4 @@
-module bazil.org/zipfs
+module github.com/PhracturedBlue/openrc-syslog-fs
 
 go 1.16
 
